@@ -18,7 +18,7 @@ type Props = {
   startPage: number;
 };
 
-const Page = forwardRef<HTMLDivElement, { src?: string; number: number }>(
+const Page = forwardRef<HTMLDivElement, { src?: string | undefined; number: number }>(
   ({ src, number }, ref) => (
     <div ref={ref} className="paper-surface h-full w-full overflow-hidden shadow-book">
       {src ? (
@@ -168,6 +168,7 @@ export function BookReader({ bookId, userId, title, pdfUrl, startPage }: Props) 
           useMouseEvents
           swipeDistance={30}
           startPage={0}
+          startZIndex={0}
           clickEventForward={false}
           disableFlipByClick={false}
           autoSize={false}
